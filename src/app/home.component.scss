@@ -1,3 +1,41 @@
+/* Modal styles for story details */
+.story-details-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+.story-details-modal-content {
+  background: none;
+  border-radius: 20px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+  padding: 0;
+  position: relative;
+}
+.close-btn {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  background: #2ecc40;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  transition: background 0.2s;
+}
+.close-btn:hover {
+  background: #27ae60;
+}
 h2 {
   text-align: center;
   margin-top: 2rem;

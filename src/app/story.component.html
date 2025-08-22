@@ -1,0 +1,18 @@
+<div class="story-panel">
+  <h3>{{ title }}</h3>
+  <p class="description">{{ description }}</p>
+  <div class="story-details">
+    <div>
+      <strong>Chapters:</strong>
+      <ul>
+        <li *ngFor="let chapter of chapters">{{ chapter }}</li>
+      </ul>
+    </div>
+    <div>
+      <strong>Characters:</strong>
+      <ul>
+        <li *ngFor="let character of characters">{{ character }}</li>
+      </ul>
+    </div>
+  </div>
+</div>

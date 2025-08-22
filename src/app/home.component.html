@@ -2,3 +2,27 @@
 <div class="home-bg">
 	<div id="particles-js"></div>
 </div>
+<div style="position:relative;z-index:2;max-width:1100px;margin:0 auto;padding-top:120px;">
+	<ng-container *ngFor="let story of stories">
+		<div (click)="openStory(story)" style="cursor:pointer;">
+			<app-story
+				[title]="story.title"
+				[description]="story.description"
+				[chapters]="story.chapters"
+				[characters]="story.characters">
+			</app-story>
+		</div>
+	</ng-container>
+</div>
+
+<div *ngIf="selectedStory" class="story-details-modal" (click)="closeStory()">
+	<div class="story-details-modal-content" (click)="$event.stopPropagation()">
+		<app-story-details
+			[title]="selectedStory.title"
+			[description]="selectedStory.description"
+			[chapters]="selectedStory.chapters"
+			[characters]="selectedStory.characters">
+		</app-story-details>
+		<button class="close-btn" (click)="closeStory()">Close</button>
+	</div>
+</div>
