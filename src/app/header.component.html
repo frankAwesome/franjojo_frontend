@@ -1,12 +1,14 @@
 <header class="header">
   <div class="header-content">
-    <span>
+    <span style="display: flex; align-items: center; gap: 1.2rem;">
       <img src="https://firebasestorage.googleapis.com/v0/b/storysocial-23aa1.appspot.com/o/Logo_2020-01%20(1).png?alt=media&token=a3cbe8d8-83bf-4dcc-9d7f-914c4260d512" class="logo-img" />
+      <span class="header-title" style="font-size: 2rem; font-weight: 700; color: #2ecc40; font-family: 'Montserrat', Arial, sans-serif;">My stories</span>
     </span>
-    <nav>
-    <a routerLink="/home" routerLinkActive="active" style="color: black;">Home</a>
-    <a routerLink="/profile" routerLinkActive="active" style="color: black;">Profile</a>
-    <a routerLink="/login" routerLinkActive="active" style="color: black;">Logout</a>
+    <nav style="display: flex; align-items: center; gap: 1.2rem;">
+  <a routerLink="/home" routerLinkActive="active" style="color: black;">Home</a>
+  <a routerLink="/profile" routerLinkActive="active" style="color: black;">Profile</a>
+  <a routerLink="/create-story" routerLinkActive="active" style="color: black;">Create new story</a>
+  <a routerLink="/login" routerLinkActive="active" style="color: black;">Logout</a>
     </nav>
   </div>
 </header>
