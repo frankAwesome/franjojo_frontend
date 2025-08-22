@@ -1,9 +1,15 @@
-/* Add your styles for the login component here */
+body, :host {
+  background: url('https://wallpapers.com/images/hd/cartoon-games-1334-x-721-wallpaper-y8oavf5j1zkl912t.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
 form {
   display: flex;
   flex-direction: column;
-  max-width: 300px;
+  max-width: 400px;
   margin: 2rem auto;
+  background: rgba(255,255,255,0.92);
+  border-radius: 18px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.10);
 }
 label {
   margin-top: 1rem;
