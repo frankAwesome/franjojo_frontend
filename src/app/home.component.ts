@@ -20,11 +20,11 @@ export class HomeComponent implements AfterViewInit {
         { title: 'The New Dawn', image: 'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80' }
       ],
       characters: [
-        { name: 'Aria', image: 'https://randomuser.me/api/portraits/women/1.jpg' },
-        { name: 'Dax', image: 'https://randomuser.me/api/portraits/men/2.jpg' },
-        { name: 'King Eldor', image: 'https://randomuser.me/api/portraits/men/3.jpg' },
-        { name: 'Mira', image: 'https://randomuser.me/api/portraits/women/4.jpg' },
-        { name: 'The Oracle', image: 'https://randomuser.me/api/portraits/women/5.jpg' }
+        { name: 'Aria', image: 'https://randomuser.me/api/portraits/women/1.jpg', role: 'Protagonist' },
+        { name: 'Dax', image: 'https://randomuser.me/api/portraits/men/2.jpg', role: 'Protagonist' },
+        { name: 'King Eldor', image: 'https://randomuser.me/api/portraits/men/3.jpg', role: 'Mentor' },
+        { name: 'Mira', image: 'https://randomuser.me/api/portraits/women/4.jpg', role: 'Companion' },
+        { name: 'The Oracle', image: 'https://randomuser.me/api/portraits/women/5.jpg', role: 'Guide' }
       ]
     },
     {
@@ -37,11 +37,11 @@ export class HomeComponent implements AfterViewInit {
         { title: 'The Secret Room', image: 'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=400&q=80' }
       ],
       characters: [
-        { name: 'Lila', image: 'https://randomuser.me/api/portraits/women/6.jpg' },
-        { name: 'Detective Rowan', image: 'https://randomuser.me/api/portraits/men/7.jpg' },
-        { name: 'The Butler', image: 'https://randomuser.me/api/portraits/men/8.jpg' },
-        { name: 'Mrs. Black', image: 'https://randomuser.me/api/portraits/women/9.jpg' },
-        { name: 'The Ghost', image: 'https://randomuser.me/api/portraits/lego/1.jpg' }
+        { name: 'Lila', image: 'https://randomuser.me/api/portraits/women/6.jpg', role: 'Protagonist' },
+        { name: 'Detective Rowan', image: 'https://randomuser.me/api/portraits/men/7.jpg', role: 'Detective' },
+        { name: 'The Butler', image: 'https://randomuser.me/api/portraits/men/8.jpg', role: 'Suspect' },
+        { name: 'Mrs. Black', image: 'https://randomuser.me/api/portraits/women/9.jpg', role: 'Suspect' },
+        { name: 'The Ghost', image: 'https://randomuser.me/api/portraits/lego/1.jpg', role: 'Antagonist' }
       ]
     }
   ];

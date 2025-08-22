@@ -8,7 +8,10 @@
       <ul class="character-list horizontal">
         <li *ngFor="let character of characters" class="character-item">
           <img *ngIf="character.image" [src]="character.image" alt="{{ character.name }}" class="character-img large">
-          <span>{{ character.name }}</span>
+          <span>
+            {{ character.name }}
+            <div *ngIf="character.role" class="character-role">{{ character.role }}</div>
+          </span>
         </li>
       </ul>
     </div>

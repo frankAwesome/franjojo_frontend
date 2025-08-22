@@ -8,6 +8,7 @@ export interface Chapter {
 export interface Character {
   name: string;
   image?: string;
+  role?: string;
 }
 
 @Component({
