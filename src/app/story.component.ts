@@ -1,5 +1,15 @@
 import { Component, Input } from '@angular/core';
 
+export interface Chapter {
+  title: string;
+  image?: string;
+}
+
+export interface Character {
+  name: string;
+  image?: string;
+}
+
 @Component({
   selector: 'app-story',
   templateUrl: './story.component.html',
@@ -8,6 +18,6 @@ import { Component, Input } from '@angular/core';
 export class StoryComponent {
   @Input() title: string = '';
   @Input() description: string = '';
-  @Input() chapters: string[] = [];
-  @Input() characters: string[] = [];
+  @Input() chapters: Chapter[] = [];
+  @Input() characters: Character[] = [];
 }
