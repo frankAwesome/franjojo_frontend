@@ -1,0 +1,18 @@
+/* Add your styles for the register component here */
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  margin: 2rem auto;
+}
+label {
+  margin-top: 1rem;
+}
+input {
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+button {
+  margin-top: 1rem;
+  padding: 0.5rem;
+}
