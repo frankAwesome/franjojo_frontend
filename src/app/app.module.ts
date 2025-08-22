@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { RegisterComponent } from './register.component';
 import { LoginComponent } from './login.component';
 import { HomeComponent } from './home.component';
+import { HeaderComponent } from './header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -20,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
