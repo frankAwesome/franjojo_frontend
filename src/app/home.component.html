@@ -4,12 +4,13 @@
 </div>
 <div style="position:relative;z-index:2;max-width:1100px;margin:0 auto;padding-top:120px;">
 	<ng-container *ngFor="let story of stories">
-		<div (click)="openStory(story)" style="cursor:pointer;">
+		<div>
 			<app-story
 				[title]="story.title"
 				[description]="story.description"
 				[chapters]="story.chapters"
-				[characters]="story.characters">
+				[characters]="story.characters"
+				[edit]="getEditFn(story)">
 			</app-story>
 		</div>
 	</ng-container>

@@ -1,3 +1,18 @@
+.edit-btn {
+  margin: 0.5rem 0 1.5rem 0;
+  padding: 0.4rem 1.2rem;
+  background: #2ecc40;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'Montserrat', Arial, sans-serif;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.edit-btn:hover {
+  background: #27ae38;
+}
 /* Modal styles for story details */
 .story-details-modal {
   position: fixed;

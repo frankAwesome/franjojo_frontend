@@ -20,4 +20,5 @@ export class StoryComponent {
   @Input() description: string = '';
   @Input() chapters: Chapter[] = [];
   @Input() characters: Character[] = [];
+  @Input() edit?: () => void;
 }

@@ -1,3 +1,41 @@
+.edit-btn.top-right {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  z-index: 3;
+  padding: 0.4rem 1.2rem;
+  background: #2ecc40;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'Montserrat', Arial, sans-serif;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.edit-btn.top-right:hover {
+  background: #27ae38;
+}
+.story-panel {
+  position: relative;
+}
+.character-list.horizontal {
+  display: flex;
+  flex-direction: row;
+  gap: 2.2rem;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+.character-img.large {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 0.7rem;
+  border: 2.5px solid #2ecc40;
+  background: #f8f8f8;
+}
 .character-list {
   list-style: none;
   padding: 0;

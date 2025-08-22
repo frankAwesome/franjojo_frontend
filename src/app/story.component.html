@@ -1,38 +1,39 @@
 <div class="story-panel">
+  <button *ngIf="edit" class="edit-btn top-right" (click)="edit()">View</button>
   <h3>{{ title }}</h3>
   <p class="description">{{ description }}</p>
   <div class="story-details">
-    <div class="chapter-carousel-container">
-      <strong>Chapters:</strong>
-  <div [id]="'carousel-' + (title | lowercase)" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div *ngFor="let chapter of chapters; let i = index" class="carousel-item" [class.active]="i === 0">
-        <div class="card chapter-card mx-auto">
-          <img *ngIf="chapter.image" [src]="chapter.image" class="card-img-top" alt="Chapter image" style="max-height:180px;object-fit:cover;">
-          <div class="card-body">
-            <h5 class="card-title">{{ chapter.title || chapter }}</h5>
-          </div>
-        </div>
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" [attr.data-bs-target]="'#carousel-' + (title | lowercase)" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" [attr.data-bs-target]="'#carousel-' + (title | lowercase)" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-    </div>
     <div>
       <strong>Characters:</strong>
-      <ul class="character-list">
+      <ul class="character-list horizontal">
         <li *ngFor="let character of characters" class="character-item">
-          <img *ngIf="character.image" [src]="character.image" alt="{{ character.name }}" class="character-img">
+          <img *ngIf="character.image" [src]="character.image" alt="{{ character.name }}" class="character-img large">
           <span>{{ character.name }}</span>
         </li>
       </ul>
+    </div>
+    <div class="chapter-carousel-container">
+      <strong>Chapters:</strong>
+      <div [id]="'carousel-' + (title | lowercase)" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div *ngFor="let chapter of chapters; let i = index" class="carousel-item" [class.active]="i === 0">
+            <div class="card chapter-card mx-auto">
+              <img *ngIf="chapter.image" [src]="chapter.image" class="card-img-top" alt="Chapter image" style="max-height:180px;object-fit:cover;">
+              <div class="card-body">
+                <h5 class="card-title">{{ chapter.title || chapter }}</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" [attr.data-bs-target]="'#carousel-' + (title | lowercase)" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" [attr.data-bs-target]="'#carousel-' + (title | lowercase)" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
     </div>
   </div>
 </div>
