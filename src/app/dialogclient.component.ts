@@ -2,11 +2,18 @@ import { Component, Output, EventEmitter, OnInit, Input } from '@angular/core';
 import { StoryService, Story, Character, Chapter, Milestone } from './services/story.service';
 import { DialogService, GetNPCDialogRequest } from './services/dialog.service';
 
+
+export interface DialogMessage {
+  text: string;
+  sender: 'user' | 'npc';
+}
+
 @Component({
   selector: 'app-dialogclient',
   templateUrl: './dialogclient.component.html',
   styleUrls: ['./dialogclient.component.scss']
 })
+
 export class DialogClientComponent implements OnInit {
   @Input() story?: Story;
   @Output() closeDialog = new EventEmitter<void>();
@@ -22,6 +29,7 @@ export class DialogClientComponent implements OnInit {
   selectedMilestones: { [id: number]: boolean } = {};
   dialogText: string = '';
   response: any = null;
+  messageHistory: DialogMessage[] = [];
   error: string | null = null;
 
   constructor(private storyService: StoryService, private dialogService: DialogService) {}
@@ -77,10 +85,16 @@ export class DialogClientComponent implements OnInit {
       chapterId: this.selectedChapterId,
       milestones: milestonesArr
     };
+    // Add user message to history
+    this.messageHistory.push({ text: this.dialogText, sender: 'user' });
     this.dialogService.getNPCDialog(payload).subscribe({
       next: (res) => {
         this.response = res;
         this.error = null;
+  // Use 'response' field from API response as NPC reply
+  const npcText = res.response || JSON.stringify(res);
+  this.messageHistory.push({ text: npcText, sender: 'npc' });
+        this.dialogText = '';
       },
       error: () => {
         this.error = 'Failed to get dialog.';

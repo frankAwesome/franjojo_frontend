@@ -35,8 +35,12 @@
       </div>
       <button class="minecraft-btn" type="submit">Send Dialog</button>
       <button class="minecraft-btn" type="button" (click)="$event.stopPropagation(); closeDialog.emit()">Close</button>
+      <div class="dialog-message-history">
+        <div *ngFor="let msg of messageHistory" [ngClass]="{'bubble-user': msg.sender === 'user', 'bubble-npc': msg.sender === 'npc'}" class="dialog-bubble">
+          <span>{{msg.text}}</span>
+        </div>
+      </div>
       <div *ngIf="error" style="color:#ff5555;">{{error}}</div>
-      <div *ngIf="response" style="color:#3cfa00;">Response: {{response | json}}</div>
     </form>
   </div>
 
