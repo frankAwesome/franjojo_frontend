@@ -1,0 +1,28 @@
+.profile-panel {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  padding: 2.8rem 3.5rem;
+  margin: 2.5rem auto;
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+}
+.minecraft-title {
+  font-family: 'Press Start 2P', monospace, Arial, sans-serif;
+  color: #3cfa00;
+  font-size: 1.5rem;
+  text-shadow: 2px 2px 0 #222, 4px 4px 0 #000;
+  margin-bottom: 1.2rem;
+}
+.profile-message {
+  font-family: 'Montserrat', Arial, sans-serif;
+  color: #444;
+  font-size: 1.1rem;
+  margin-top: 1.5rem;
+}
+.minecraft-accent {
+  font-family: 'Press Start 2P', monospace, Arial, sans-serif;
+  color: #3cfa00;
+  text-shadow: 1px 1px 0 #222;
+}
