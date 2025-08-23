@@ -3,6 +3,7 @@ import { Component, Input } from '@angular/core';
 export interface Chapter {
   title: string;
   image?: string;
+  description?: string;
 }
 
 export interface Character {

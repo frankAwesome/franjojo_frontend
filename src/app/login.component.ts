@@ -1,3 +1,4 @@
+import { OnInit, OnDestroy } from '@angular/core';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from './services/auth.service';
@@ -8,7 +9,16 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit, OnDestroy {
+  ngOnInit() {
+  document.body.style.background = "url('https://i.pinimg.com/originals/6f/5c/58/6f5c58cbdb45d470fb21054337bbe0a4.gif') no-repeat center center fixed";
+    document.body.style.backgroundSize = 'cover';
+  }
+
+  ngOnDestroy() {
+    document.body.style.background = '';
+    document.body.style.backgroundSize = '';
+  }
   loginForm: FormGroup;
   error: string | null = null;
   success: string | null = null;

@@ -1,4 +1,11 @@
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="p-4 rounded bg-white shadow-sm" style="max-width:400px;margin:2rem auto;">
+<div style="position:relative;min-height:220px;">
+  <img src="https://firebasestorage.googleapis.com/v0/b/storysocial-23aa1.appspot.com/o/Franjojo%20Astronaut%20Adventure.png?alt=media&token=7cf24af6-c970-479b-9ff4-f1d834a6030a" alt="Franjojo Astronaut Adventure Logo" style="position:absolute;left:0;top:0;max-width:220px;max-height:220px;margin:2.5rem 0 0 4.5rem;z-index:2;margin-left: 300px;;" />
+<!-- logo container ends -->
+</div>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="p-4 rounded bg-white shadow-sm" style="max-width:400px;margin:5rem auto 2rem auto;">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;">
+    <span style="font-size:2rem;font-weight:700;color:#1b1b1b;font-family:'Montserrat',Arial,sans-serif;">Login</span>
+  </div>
   <div class="mb-3">
     <label class="form-label">Email:</label>
     <input formControlName="email" type="email" class="form-control" />

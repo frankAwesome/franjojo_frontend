@@ -24,6 +24,7 @@
               <img *ngIf="chapter.image" [src]="chapter.image" class="card-img-top" alt="Chapter image" style="max-height:180px;object-fit:cover;">
               <div class="card-body">
                 <h5 class="card-title">{{ chapter.title || chapter }}</h5>
+                <p class="chapter-description" *ngIf="chapter.description">{{ chapter.description }}</p>
               </div>
             </div>
           </div>
