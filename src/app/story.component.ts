@@ -3,21 +3,25 @@
 // ...existing code...
 import { Component, Input } from '@angular/core';
 
+export interface Milestone {
+  id: number;
+  name: string;
+  completed: boolean;
+  timestamp: string;
+}
+
 export interface Chapter {
   title: string;
   image?: string;
   description?: string;
-  missions?: string[];
+  milestones?: Milestone[];
 }
 
 export interface Character {
   name: string;
   image?: string;
+  role?: string;
   subtitle?: string;
-  description?: string;
-  type?: string;
-  id?: number;
-  timestamp?: string;
 }
 
 @Component({
@@ -35,10 +39,10 @@ export class StoryComponent {
   closeDialogClient() {
     this.showDialogClient = false;
   }
-  @Input() title: string = '';
-  @Input() description: string = '';
-  @Input() chapters: Chapter[] = [];
-  @Input() characters: Character[] = [];
+  @Input() title!: string;
+  @Input() description!: string;
+  @Input() chapters!: Chapter[];
+  @Input() characters!: Character[];
   @Input() edit?: () => void;
 
   currentChapterIndex = 0;
@@ -59,5 +63,5 @@ export class StoryComponent {
     this.currentChapterIndex = index;
   }
 
-
+  // All character images should now be provided directly from the API via the 'image' property.
 }

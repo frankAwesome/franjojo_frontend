@@ -32,12 +32,12 @@
           </div>
           <div class="card-body">
             <p class="minecraft-chapter-description" *ngIf="chapters[currentChapterIndex]?.description">{{ chapters[currentChapterIndex]?.description }}</p>
-            <div *ngIf="chapters[currentChapterIndex]?.missions?.length" class="chapter-missions">
+            <div *ngIf="chapters[currentChapterIndex]?.milestones?.length" class="chapter-missions">
               <div class="minecraft-section-heading" style="margin-top:0.7rem; font-size:0.9rem; color:#3cfa00;">Missions:</div>
               <ul class="minecraft-mission-list">
-                <li *ngFor="let mission of chapters[currentChapterIndex]?.missions | slice:0:3">
+                <li *ngFor="let milestone of chapters[currentChapterIndex]?.milestones | slice:0:3">
                   <span class="minecraft-mission-icon"></span>
-                  <span class="minecraft-mission-text">{{ mission }}</span>
+                  <span class="minecraft-mission-text">{{ milestone.name }}</span>
                 </li>
               </ul>
             </div>
