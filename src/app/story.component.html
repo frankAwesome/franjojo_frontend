@@ -3,7 +3,7 @@
   <p class="description">{{ description }}</p>
   <div class="story-details">
     <div>
-      <strong>Characters:</strong>
+  <strong class="minecraft-section-heading">Characters:</strong>
       <ul class="character-list horizontal">
         <li *ngFor="let character of characters" class="character-item minecraft-character-frame">
           <img *ngIf="character.image" [src]="getGameCharacterImage(character.image)" alt="{{ character.name }}" class="character-img large">
@@ -15,7 +15,7 @@
       </ul>
     </div>
     <div class="chapter-carousel-container">
-      <strong>Chapters:</strong>
+  <strong class="minecraft-section-heading">Chapters:</strong>
       <div class="custom-carousel">
         <button class="carousel-arrow left" (click)="prevChapter()" [disabled]="currentChapterIndex === 0">&#9664;</button>
         <div class="chapter-card mx-auto">
