@@ -1,5 +1,4 @@
 <div class="story-panel">
-  <button *ngIf="edit" class="edit-btn top-right" (click)="edit()">View</button>
   <h3>{{ title }}</h3>
   <p class="description">{{ description }}</p>
   <div class="story-details">
@@ -7,7 +6,7 @@
       <strong>Characters:</strong>
       <ul class="character-list horizontal">
         <li *ngFor="let character of characters" class="character-item">
-          <img *ngIf="character.image" [src]="character.image" alt="{{ character.name }}" class="character-img large">
+          <img *ngIf="character.image" [src]="getGameCharacterImage(character.image)" alt="{{ character.name }}" class="character-img large">
           <span>
             {{ character.name }}
             <div *ngIf="character.role" class="character-role">{{ character.role }}</div>
@@ -17,26 +16,22 @@
     </div>
     <div class="chapter-carousel-container">
       <strong>Chapters:</strong>
-      <div [id]="'carousel-' + (title | lowercase)" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div *ngFor="let chapter of chapters; let i = index" class="carousel-item" [class.active]="i === 0">
-            <div class="card chapter-card mx-auto">
-              <img *ngIf="chapter.image" [src]="chapter.image" class="card-img-top" alt="Chapter image" style="max-height:180px;object-fit:cover;">
-              <div class="card-body">
-                <h5 class="card-title">{{ chapter.title || chapter }}</h5>
-                <p class="chapter-description" *ngIf="chapter.description">{{ chapter.description }}</p>
-              </div>
+      <div class="custom-carousel">
+        <button class="carousel-arrow left" (click)="prevChapter()" [disabled]="currentChapterIndex === 0">&#9664;</button>
+        <div class="chapter-card mx-auto">
+          <img *ngIf="chapters[currentChapterIndex]?.image" [src]="chapters[currentChapterIndex]?.image" class="card-img-top" alt="Chapter image" style="max-height:180px;object-fit:cover;">
+          <div class="card-body">
+            <h5 class="card-title">{{ chapters[currentChapterIndex]?.title || chapters[currentChapterIndex] }}</h5>
+            <div class="chapter-number" style="font-family:'Press Start 2P',monospace;color:#3cfa00;font-size:0.95rem;margin:0.3rem 0 0.5rem 0;">
+              Chapter {{ currentChapterIndex + 1 }}
             </div>
+            <p class="chapter-description" *ngIf="chapters[currentChapterIndex]?.description">{{ chapters[currentChapterIndex]?.description }}</p>
           </div>
         </div>
-        <button class="carousel-control-prev" type="button" [attr.data-bs-target]="'#carousel-' + (title | lowercase)" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" [attr.data-bs-target]="'#carousel-' + (title | lowercase)" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
+        <button class="carousel-arrow right" (click)="nextChapter()" [disabled]="currentChapterIndex === chapters.length - 1">&#9654;</button>
+      </div>
+      <div class="carousel-indicators">
+        <span *ngFor="let chapter of chapters; let i = index" class="indicator-dot" [class.active]="i === currentChapterIndex" (click)="goToChapter(i)"></span>
       </div>
     </div>
   </div>
