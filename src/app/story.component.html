@@ -19,12 +19,16 @@
       <div class="custom-carousel">
         <button class="carousel-arrow left" (click)="prevChapter()" [disabled]="currentChapterIndex === 0">&#9664;</button>
         <div class="chapter-card mx-auto">
-          <img *ngIf="chapters[currentChapterIndex]?.image" [src]="chapters[currentChapterIndex]?.image" class="card-img-top" alt="Chapter image" style="max-height:180px;object-fit:cover;">
-          <div class="card-body">
+          <div class="chapter-image-frame">
+            <img *ngIf="chapters[currentChapterIndex]?.image" [src]="chapters[currentChapterIndex]?.image" class="card-img-top" alt="Chapter image" style="max-height:180px;object-fit:cover;">
+          </div>
+          <div class="chapter-title-block">
             <h5 class="minecraft-chapter-title">{{ chapters[currentChapterIndex]?.title || chapters[currentChapterIndex] }}</h5>
             <div class="chapter-number" style="font-family:'Press Start 2P',monospace;color:#3cfa00;font-size:0.95rem;margin:0.3rem 0 0.5rem 0;">
               Chapter {{ currentChapterIndex + 1 }}
             </div>
+          </div>
+          <div class="card-body">
             <p class="minecraft-chapter-description" *ngIf="chapters[currentChapterIndex]?.description">{{ chapters[currentChapterIndex]?.description }}</p>
           </div>
         </div>
