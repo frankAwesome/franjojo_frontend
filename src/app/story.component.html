@@ -32,6 +32,12 @@
           </div>
           <div class="card-body">
             <p class="minecraft-chapter-description" *ngIf="chapters[currentChapterIndex]?.description">{{ chapters[currentChapterIndex]?.description }}</p>
+            <div *ngIf="chapters[currentChapterIndex]?.missions?.length" class="chapter-missions">
+              <div class="minecraft-section-heading" style="margin-top:0.7rem; font-size:0.9rem; color:#3cfa00;">Missions:</div>
+              <ul class="minecraft-mission-list">
+                <li *ngFor="let mission of chapters[currentChapterIndex]?.missions | slice:0:3">&#9632; {{ mission }}</li>
+              </ul>
+            </div>
           </div>
         </div>
         <button class="carousel-arrow right" (click)="nextChapter()" [disabled]="currentChapterIndex === chapters.length - 1">&#9654;</button>

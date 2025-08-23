@@ -7,6 +7,7 @@ export interface Chapter {
   title: string;
   image?: string;
   description?: string;
+  missions?: string[];
 }
 
 export interface Character {
@@ -36,27 +37,52 @@ export class StoryComponent {
     {
       title: 'Pig 1 Builds a Straw House',
       image: 'https://laby.net/api/v3/render/skin/8bb5b7f8f6314f128a68419ce4a8040c.png',
-      description: 'Percy Pig quickly builds his house out of straw. It goes up fast, but is it strong enough to keep him safe?'
+      description: 'Percy Pig quickly builds his house out of straw. It goes up fast, but is it strong enough to keep him safe?',
+      missions: [
+        'Gather straw from the field',
+        'Build the house before sunset',
+        'Test the house for strength'
+      ]
     },
     {
       title: 'Pig 2 Builds a Wood House',
       image: 'https://s.namemc.com/3d/skin/body.png?id=292a520f3c0d60a1&model=classic&width=308&height=308',
-      description: 'Penny Pig chooses wood for her home, hoping it will be sturdier than straw. She decorates it with flowers.'
+      description: 'Penny Pig chooses wood for her home, hoping it will be sturdier than straw. She decorates it with flowers.',
+      missions: [
+        'Collect wood from the forest',
+        'Build a wooden house with windows',
+        'Decorate the house with flowers'
+      ]
     },
     {
       title: 'Pig 3 Builds a Brick House',
       image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3JTmZNVMCDXEfuS7JE1IHJxrD6_0WpNvvQw1XL1ZWeowRWgJxQmFq6SyGuAwPgMNyAio&usqp=CAU',
-      description: 'Peter Pig works hard to build a strong brick house. It takes longer, but he feels safe inside.'
+      description: 'Peter Pig works hard to build a strong brick house. It takes longer, but he feels safe inside.',
+      missions: [
+        'Find clay and make bricks',
+        'Build a sturdy brick house',
+        'Invite siblings to visit'
+      ]
     },
     {
       title: 'The Wolf Arrives',
       image: 'https://s.namemc.com/3d/skin/body.png?id=814cafedc6a44064&model=classic&width=308&height=308',
-      description: 'The cunning wolf comes to the village, eyeing the pigs’ houses. He starts with Percy’s straw house.'
+      description: 'The cunning wolf comes to the village, eyeing the pigs’ houses. He starts with Percy’s straw house.',
+      missions: [
+        'Scout the village for pigs',
+        'Try to blow down the straw house',
+        'Move to the next house if unsuccessful'
+      ]
     },
     {
       title: 'The Pigs Stand Together',
       image: 'https://i.ytimg.com/vi/LTfN32O5f1o/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAkiG_d4VlXV0E_CbTr7pC_UibrBw',
-      description: 'After the wolf blows down the straw and wood houses, all three pigs hide in Peter’s brick house and outsmart the wolf.'
+      description: 'After the wolf blows down the straw and wood houses, all three pigs hide in Peter’s brick house and outsmart the wolf.',
+      missions: [
+        'Hide in the brick house',
+        'Work together to defend the house',
+        'Outsmart the wolf'
+      ]
     }
   ];
   @Input() characters: Character[] = [
