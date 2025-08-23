@@ -64,13 +64,13 @@ export class HomeComponent implements AfterViewInit {
     if (typeof particlesJS !== 'undefined') {
       particlesJS('particles-js', {
         particles: {
-          number: { value: 80 },
-          color: { value: '#fff' },
+          number: { value: 120 },
+          color: { value: ['#fff', '#b0c4de', '#87ceeb', '#e0e0e0'] },
           shape: { type: 'circle' },
-          opacity: { value: 0.5 },
-          size: { value: 4 },
-          line_linked: { enable: true, color: '#fff', opacity: 0.4 },
-          move: { enable: true, speed: 2 }
+          opacity: { value: 0.85 },
+          size: { value: 2, random: true },
+          line_linked: { enable: false },
+          move: { enable: true, speed: 0.7, direction: 'none', random: true, straight: false, out_mode: 'out' }
         },
         interactivity: {
           detect_on: 'canvas',
@@ -79,8 +79,8 @@ export class HomeComponent implements AfterViewInit {
             onclick: { enable: true, mode: 'push' }
           },
           modes: {
-            repulse: { distance: 100 },
-            push: { particles_nb: 4 }
+            repulse: { distance: 80 },
+            push: { particles_nb: 2 }
           }
         },
         retina_detect: true
