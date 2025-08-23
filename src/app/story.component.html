@@ -1,8 +1,8 @@
 <div class="story-panel">
   <h3 class="minecraft-title">{{ title }}</h3>
   <button class="minecraft-btn dialog-glow-btn" style="margin-bottom:1.2rem;" (click)="openDialogClient()">Try the dialog now</button>
-  <app-dialogclient *ngIf="showDialogClient" (closeDialog)="closeDialogClient()"></app-dialogclient>
   <p class="minecraft-desc">{{ description }}</p>
+  <app-dialogclient *ngIf="showDialogClient" (closeDialog)="closeDialogClient()"></app-dialogclient>
   <div class="story-details">
     <div>
   <strong class="minecraft-section-heading">Characters:</strong>

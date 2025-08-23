@@ -1,0 +1,103 @@
+openapi: 3.0.0
+info:
+  title: Franjojo API (Mock)
+  version: 1.0.0
+  description: Mock Swagger spec for Franjojo frontend demo
+servers:
+  - url: https://mock.franjojo.api/v1
+paths:
+  /stories:
+    get:
+      summary: Get all stories
+      responses:
+        '200':
+          description: List of stories
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Story'
+    post:
+      summary: Create a new story
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Story'
+      responses:
+        '201':
+          description: Story created
+  /stories/{storyId}:
+    get:
+      summary: Get a story by ID
+      parameters:
+        - in: path
+          name: storyId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Story details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Story'
+  /login:
+    post:
+      summary: User login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200':
+          description: Login successful
+components:
+  schemas:
+    Story:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        chapters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Chapter'
+        characters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Character'
+    Chapter:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        missions:
+          type: array
+          items:
+            type: string
+    Character:
+      type: object
+      properties:
+        name:
+          type: string
+        role:
+          type: string
+        image:
+          type: string

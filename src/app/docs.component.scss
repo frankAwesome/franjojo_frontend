@@ -1,0 +1,38 @@
+.docs-bg {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #232323 60%, #3cfa00 100%);
+  padding: 3.5rem 0 0 0;
+}
+.docs-container {
+  max-width: 700px;
+  margin: 3.5rem auto 0 auto;
+  background: rgba(34, 34, 34, 0.97);
+  border: 3px solid #3cfa00;
+  border-radius: 1.2rem;
+  box-shadow: 0 8px 32px #000a;
+  padding: 2.5rem 2.2rem 2.2rem 2.2rem;
+}
+.minecraft-title {
+  font-family: 'Press Start 2P', monospace;
+  color: #3cfa00;
+  text-shadow: 2px 2px 0 #222, 2px 2px 0 #000;
+  margin-bottom: 1.5rem;
+}
+.minecraft-desc {
+  font-family: 'Press Start 2P', monospace;
+  color: #fff;
+  font-size: 0.95rem;
+  margin-bottom: 1.2rem;
+}
+.minecraft-doc-list {
+  font-family: 'Press Start 2P', monospace;
+  color: #fff;
+  background: #232323;
+  border: 2px solid #3cfa00;
+  border-radius: 0.7rem;
+  box-shadow: 2px 2px 0 #000;
+  padding: 1.1em 1.2em 1.1em 1.2em;
+  margin: 1.1rem 0 0.2rem 0;
+  font-size: 0.7rem;
+  list-style: square inside;
+}
