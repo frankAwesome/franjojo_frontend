@@ -17,7 +17,6 @@ export class DialogClientComponent implements OnInit {
   milestones: Milestone[] = [];
 
   selectedStoryId: number | null = null;
-  selectedProtagonistId: number | null = null;
   selectedNpcId: number | null = null;
   selectedChapterId: number | null = null;
   selectedMilestones: { [id: number]: boolean } = {};
@@ -64,17 +63,16 @@ export class DialogClientComponent implements OnInit {
   }
 
   submitDialog() {
-    if (!this.selectedStoryId || !this.selectedProtagonistId || !this.selectedNpcId || !this.selectedChapterId) {
+    if (!this.selectedStoryId || !this.selectedNpcId || !this.selectedChapterId) {
       this.error = 'Please select all fields.';
       return;
     }
     const milestonesArr = this.milestones
       .filter(m => this.selectedMilestones[m.id])
       .map(m => ({ id: m.id, completed: true }));
-    const payload: GetNPCDialogRequest = {
+    const payload: any = {
       dialogText: this.dialogText,
       storyId: this.selectedStoryId,
-      protagonistId: this.selectedProtagonistId,
       npcId: this.selectedNpcId,
       chapterId: this.selectedChapterId,
       milestones: milestonesArr

@@ -3,21 +3,6 @@
     <h3 class="minecraft-title">Dialog Client</h3>
     <form (ngSubmit)="submitDialog()" style="font-family:'Press Start 2P',monospace;color:#fff;">
       <div class="mb-3">
-        <label>Protagonist:</label>
-        <div class="minecraft-dropdown">
-          <select [(ngModel)]="selectedProtagonistId" name="protagonist" required class="minecraft-select">
-            <option *ngFor="let c of characters" [ngValue]="c.id">
-              {{c.name}}
-            </option>
-          </select>
-          <div class="dropdown-images">
-            <ng-container *ngFor="let c of characters">
-              <img *ngIf="selectedProtagonistId == c.id" [src]="c.image" [alt]="c.name" class="dropdown-img-round" />
-            </ng-container>
-          </div>
-        </div>
-      </div>
-      <div class="mb-3">
         <label>NPC:</label>
         <div class="minecraft-dropdown">
           <select [(ngModel)]="selectedNpcId" name="npc" required class="minecraft-select">
