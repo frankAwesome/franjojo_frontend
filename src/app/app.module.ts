@@ -16,6 +16,7 @@ import { StoryComponent } from './story.component';
 import { StoryDetailsComponent } from './story-details.component';
 import { ProfileComponent } from './profile.component';
 import { CreateStoryComponent } from './createstory.component';
+import { DialogClientComponent } from './dialogclient.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -30,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
   StoryComponent,
   StoryDetailsComponent,
   ProfileComponent,
-  CreateStoryComponent
+  CreateStoryComponent,
+  DialogClientComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 // ...existing code...
 // ...existing code...
+// ...existing code...
 import { Component, Input } from '@angular/core';
 
 export interface Chapter {
@@ -20,6 +21,15 @@ export interface Character {
   styleUrls: ['./story.component.scss']
 })
 export class StoryComponent {
+  showDialogClient = false;
+
+  openDialogClient() {
+    this.showDialogClient = true;
+  }
+
+  closeDialogClient() {
+    this.showDialogClient = false;
+  }
   @Input() title: string = 'The Three Pigs and the Wolf';
   @Input() description: string = 'A Minecraft-themed retelling of the classic tale, where three pigs build their homes and face the cunning wolf.';
   @Input() chapters: Chapter[] = [
