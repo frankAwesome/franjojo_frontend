@@ -1,34 +1,52 @@
-<div class="dialogclient-modal">
-  <div class="dialogclient-content">
+<div class="dialogclient-modal minecraft-dialog-big">
+  <div class="dialogclient-content minecraft-dialog-content-big">
     <h3 class="minecraft-title">Dialog Client</h3>
     <form (ngSubmit)="submitDialog()" style="font-family:'Press Start 2P',monospace;color:#fff;">
-      <div class="mb-2">
+      <div class="mb-3">
         <label>Protagonist:</label>
-        <select [(ngModel)]="selectedProtagonistId" name="protagonist" required>
-          <option *ngFor="let c of characters" [value]="c.id">{{c.name}}</option>
-        </select>
+        <div class="minecraft-dropdown">
+          <select [(ngModel)]="selectedProtagonistId" name="protagonist" required class="minecraft-select">
+            <option *ngFor="let c of characters" [ngValue]="c.id">
+              {{c.name}}
+            </option>
+          </select>
+          <div class="dropdown-images">
+            <ng-container *ngFor="let c of characters">
+              <img *ngIf="selectedProtagonistId == c.id" [src]="c.image" [alt]="c.name" class="dropdown-img-round" />
+            </ng-container>
+          </div>
+        </div>
       </div>
-      <div class="mb-2">
+      <div class="mb-3">
         <label>NPC:</label>
-        <select [(ngModel)]="selectedNpcId" name="npc" required>
-          <option *ngFor="let c of characters" [value]="c.id">{{c.name}}</option>
-        </select>
+        <div class="minecraft-dropdown">
+          <select [(ngModel)]="selectedNpcId" name="npc" required class="minecraft-select">
+            <option *ngFor="let c of characters" [ngValue]="c.id">
+              {{c.name}}
+            </option>
+          </select>
+          <div class="dropdown-images">
+            <ng-container *ngFor="let c of characters">
+              <img *ngIf="selectedNpcId == c.id" [src]="c.image" [alt]="c.name" class="dropdown-img-round" />
+            </ng-container>
+          </div>
+        </div>
       </div>
-      <div class="mb-2">
+      <div class="mb-3">
         <label>Chapter:</label>
-        <select [(ngModel)]="selectedChapterId" name="chapter" (change)="onChapterChange()" required>
-          <option *ngFor="let ch of chapters" [value]="ch.id">{{ch.title}}</option>
+        <select [(ngModel)]="selectedChapterId" name="chapter" (change)="onChapterChange()" required class="minecraft-select">
+          <option *ngFor="let ch of chapters" [ngValue]="ch.id">{{ch.title}}</option>
         </select>
       </div>
-      <div class="mb-2">
+      <div class="mb-3">
         <label>Milestones:</label>
-        <div *ngFor="let m of milestones">
+        <div *ngFor="let m of milestones" class="minecraft-checkbox-row">
           <input type="checkbox" [(ngModel)]="selectedMilestones[m.id]" name="milestone{{m.id}}" /> {{m.name}}
         </div>
       </div>
-      <div class="mb-2">
+      <div class="mb-3">
         <label>Dialog Text:</label>
-        <textarea [(ngModel)]="dialogText" name="dialogText" rows="2" style="width:100%"></textarea>
+        <textarea [(ngModel)]="dialogText" name="dialogText" rows="4" style="width:100%" class="minecraft-input"></textarea>
       </div>
       <button class="minecraft-btn" type="submit">Send Dialog</button>
       <button class="minecraft-btn" type="button" (click)="$event.stopPropagation(); closeDialog.emit()">Close</button>
@@ -36,4 +54,5 @@
       <div *ngIf="response" style="color:#3cfa00;">Response: {{response | json}}</div>
     </form>
   </div>
-</div>
+
+
