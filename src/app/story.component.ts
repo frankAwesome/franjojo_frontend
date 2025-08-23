@@ -30,14 +30,24 @@ export interface Character {
   styleUrls: ['./story.component.scss']
 })
 export class StoryComponent {
+  @Input() storyId!: number;
   showDialogClient = false;
+  dialogStory: any = null;
 
   openDialogClient() {
+    this.dialogStory = {
+      storyId: this.storyId,
+      title: this.title,
+      description: this.description,
+      chapters: this.chapters,
+      characters: this.characters
+    };
     this.showDialogClient = true;
   }
 
   closeDialogClient() {
     this.showDialogClient = false;
+    this.dialogStory = null;
   }
   @Input() title!: string;
   @Input() description!: string;

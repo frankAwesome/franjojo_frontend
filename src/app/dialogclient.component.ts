@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit, Input } from '@angular/core';
 import { StoryService, Story, Character, Chapter, Milestone } from './services/story.service';
 import { DialogService, GetNPCDialogRequest } from './services/dialog.service';
 
@@ -8,6 +8,7 @@ import { DialogService, GetNPCDialogRequest } from './services/dialog.service';
   styleUrls: ['./dialogclient.component.scss']
 })
 export class DialogClientComponent implements OnInit {
+  @Input() story?: Story;
   @Output() closeDialog = new EventEmitter<void>();
 
   stories: Story[] = [];
@@ -27,23 +28,33 @@ export class DialogClientComponent implements OnInit {
   constructor(private storyService: StoryService, private dialogService: DialogService) {}
 
   ngOnInit() {
-    this.storyService.getAllStories().subscribe({
-      next: (res) => {
-        this.stories = res.stories;
-        if (this.stories.length > 0) {
-          this.selectedStoryId = this.stories[0].storyId;
-          this.characters = this.stories[0].characters;
-          this.chapters = this.stories[0].chapters;
-          if (this.chapters.length > 0) {
-            this.selectedChapterId = this.chapters[0].id;
-            this.milestones = this.chapters[0].milestones;
-          }
-        }
-      },
-      error: () => {
-        this.error = 'Failed to load stories.';
+    if (this.story) {
+      this.selectedStoryId = this.story.storyId;
+      this.characters = this.story.characters;
+      this.chapters = this.story.chapters;
+      if (this.chapters.length > 0) {
+        this.selectedChapterId = this.chapters[0].id;
+        this.milestones = this.chapters[0].milestones;
       }
-    });
+    } else {
+      this.storyService.getAllStories().subscribe({
+        next: (res) => {
+          this.stories = res.stories;
+          if (this.stories.length > 0) {
+            this.selectedStoryId = this.stories[0].storyId;
+            this.characters = this.stories[0].characters;
+            this.chapters = this.stories[0].chapters;
+            if (this.chapters.length > 0) {
+              this.selectedChapterId = this.chapters[0].id;
+              this.milestones = this.chapters[0].milestones;
+            }
+          }
+        },
+        error: () => {
+          this.error = 'Failed to load stories.';
+        }
+      });
+    }
   }
 
   onChapterChange() {

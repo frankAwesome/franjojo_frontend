@@ -15,13 +15,14 @@
 	</div>
 	<ng-container *ngFor="let story of stories">
 		<div>
-			<app-story
-				[title]="story.title || ''"
-				[description]="story.description || ''"
-				[chapters]="story.chapters"
-				[characters]="story.characters"
-				[edit]="getEditFn(story)">
-			</app-story>
+					<app-story
+						[storyId]="story.storyId"
+						[title]="story.title || ''"
+						[description]="story.description || ''"
+						[chapters]="story.chapters"
+						[characters]="story.characters"
+						[edit]="getEditFn(story)">
+					</app-story>
 		</div>
 	</ng-container>
 </div>
