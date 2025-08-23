@@ -1,3 +1,15 @@
+.minecraft-chapter-description {
+  font-family: 'Press Start 2P', monospace, Arial, sans-serif;
+  color: #222;
+  font-size: 0.89rem;
+  background: none;
+  border: none;
+  box-shadow: none;
+  margin-top: 0.5rem;
+  margin-bottom: 0.2rem;
+  text-shadow: 1px 1px 0 #fff, 2px 2px 0 #eee;
+  letter-spacing: 0.5px;
+}
 .minecraft-section-heading {
   font-family: 'Press Start 2P', monospace, Arial, sans-serif;
   color: #3cfa00;
@@ -219,15 +231,16 @@
 }
 .minecraft-desc {
   font-family: 'Press Start 2P', monospace, Arial, sans-serif;
-  color: #fff;
-  background: #232323;
-  border: 2px solid #3cfa00;
-  box-shadow: 2px 2px 0 #000;
-  padding: 0.7rem 1.2rem;
+  color: #111;
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0.2rem 0 0.7rem 0;
   margin-bottom: 1.2rem;
-  font-size: 0.95rem;
-  border-radius: 0.4rem;
-  text-shadow: 1px 1px 0 #222;
+  font-size: 0.92rem;
+  border-radius: 0;
+  text-shadow: 1px 1px 0 #fff, 2px 2px 0 #eee;
+  letter-spacing: 0.5px;
 }
 .minecraft-chapter-title {
   font-family: 'Press Start 2P', monospace, Arial, sans-serif;

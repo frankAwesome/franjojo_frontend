@@ -1,6 +1,6 @@
 <div class="story-panel">
   <h3 class="minecraft-title">{{ title }}</h3>
-  <p class="description">{{ description }}</p>
+  <p class="minecraft-desc">{{ description }}</p>
   <div class="story-details">
     <div>
   <strong class="minecraft-section-heading">Characters:</strong>
@@ -25,7 +25,7 @@
             <div class="chapter-number" style="font-family:'Press Start 2P',monospace;color:#3cfa00;font-size:0.95rem;margin:0.3rem 0 0.5rem 0;">
               Chapter {{ currentChapterIndex + 1 }}
             </div>
-            <p class="chapter-description" *ngIf="chapters[currentChapterIndex]?.description">{{ chapters[currentChapterIndex]?.description }}</p>
+            <p class="minecraft-chapter-description" *ngIf="chapters[currentChapterIndex]?.description">{{ chapters[currentChapterIndex]?.description }}</p>
           </div>
         </div>
         <button class="carousel-arrow right" (click)="nextChapter()" [disabled]="currentChapterIndex === chapters.length - 1">&#9654;</button>
