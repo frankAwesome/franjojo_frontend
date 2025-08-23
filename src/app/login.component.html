@@ -21,6 +21,7 @@
   </div>
   <button type="submit" [disabled]="loginForm.invalid" style="width:100%;margin-bottom:0.7rem;font-family:'Press Start 2P',monospace;background:#3cfa00;color:#222;border:3px solid #222;box-shadow:2px 2px 0 #000;font-size:1rem;letter-spacing:1px;">Login</button>
   <button type="button" (click)="loginWithGoogle()" style="width:100%;font-family:'Press Start 2P',monospace;background:#222;color:#3cfa00;border:3px solid #3cfa00;box-shadow:2px 2px 0 #000;font-size:1rem;letter-spacing:1px;">Login with Google</button>
+  <button type="button" (click)="screwTheLogin()" style="width:100%;margin-top:0.7rem;font-family:'Press Start 2P',monospace;background:#ff5555;color:#fff;border:3px solid #222;box-shadow:2px 2px 0 #000;font-size:1rem;letter-spacing:1px;">Screw the login</button>
   <div *ngIf="error" class="text-danger mt-2" style="font-family:'Press Start 2P',monospace;background:#222;color:#ff5555;padding:0.5rem 1rem;border:2px solid #ff5555;box-shadow:2px 2px 0 #000;">{{ error }}</div>
   <div *ngIf="success" class="text-success mt-2" style="font-family:'Press Start 2P',monospace;background:#222;color:#3cfa00;padding:0.5rem 1rem;border:2px solid #3cfa00;box-shadow:2px 2px 0 #000;">{{ success }}</div>
 </form>

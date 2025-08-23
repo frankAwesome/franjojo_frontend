@@ -1,3 +1,4 @@
+// ...existing code...
 import { OnInit, OnDestroy } from '@angular/core';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -10,6 +11,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit, OnDestroy {
+  screwTheLogin(): void {
+    this.authService.login({ email: 'guy@guy.com', password: 'password' }).subscribe({
+      next: () => {
+        this.success = 'Login successful!';
+        this.error = null;
+        this.router.navigate(['/home']);
+      },
+      error: (err: any) => {
+        this.error = err.error?.message || 'Login failed.';
+        this.success = null;
+      }
+    });
+  }
   ngOnInit() {
   document.body.style.background = "url('https://i.pinimg.com/originals/6f/5c/58/6f5c58cbdb45d470fb21054337bbe0a4.gif') no-repeat center center fixed";
     document.body.style.backgroundSize = 'cover';
