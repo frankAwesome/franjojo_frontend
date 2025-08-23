@@ -75,10 +75,46 @@ export class HomeComponent implements AfterViewInit {
       title: 'Mystery of the Old Manor',
       description: 'A suspenseful story about a haunted house and its secrets. Each chapter unravels a new clue, and the characters must face their fears to uncover the truth behind the manor’s ghostly inhabitants.',
       chapters: [
-        { title: 'The Invitation', image: 'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80', description: 'A mysterious letter invites the group to the old manor, setting the stage for the haunting.' },
-        { title: 'Midnight Whispers', image: 'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80', description: 'Strange voices and eerie sounds fill the night, deepening the mystery.' },
-        { title: 'The Final Clue', image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80', description: 'A crucial clue is uncovered, bringing the truth within reach.' },
-        { title: 'The Secret Room', image: 'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=400&q=80', description: 'A hidden room reveals the manor’s darkest secret and the mystery is finally solved.' }
+        {
+          title: 'The Invitation',
+          image: 'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80',
+          description: 'A mysterious letter invites the group to the old manor, setting the stage for the haunting.',
+          missions: [
+            'Read the mysterious letter',
+            'Gather the group at the manor',
+            'Explore the manor entrance'
+          ]
+        },
+        {
+          title: 'Midnight Whispers',
+          image: 'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80',
+          description: 'Strange voices and eerie sounds fill the night, deepening the mystery.',
+          missions: [
+            'Investigate the source of the whispers',
+            'Search for clues in the hallway',
+            'Calm frightened group members'
+          ]
+        },
+        {
+          title: 'The Final Clue',
+          image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80',
+          description: 'A crucial clue is uncovered, bringing the truth within reach.',
+          missions: [
+            'Find the hidden object',
+            'Piece together the clues',
+            'Reveal the manor’s secret'
+          ]
+        },
+        {
+          title: 'The Secret Room',
+          image: 'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=400&q=80',
+          description: 'A hidden room reveals the manor’s darkest secret and the mystery is finally solved.',
+          missions: [
+            'Unlock the secret room',
+            'Confront the ghost',
+            'Escape the manor safely'
+          ]
+        }
       ],
       characters: [
         { name: 'Lila', image: 'https://randomuser.me/api/portraits/women/6.jpg', role: 'Protagonist' },

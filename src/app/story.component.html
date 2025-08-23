@@ -35,7 +35,10 @@
             <div *ngIf="chapters[currentChapterIndex]?.missions?.length" class="chapter-missions">
               <div class="minecraft-section-heading" style="margin-top:0.7rem; font-size:0.9rem; color:#3cfa00;">Missions:</div>
               <ul class="minecraft-mission-list">
-                <li *ngFor="let mission of chapters[currentChapterIndex]?.missions | slice:0:3">&#9632; {{ mission }}</li>
+                <li *ngFor="let mission of chapters[currentChapterIndex]?.missions | slice:0:3">
+                  <span class="minecraft-mission-icon"></span>
+                  <span class="minecraft-mission-text">{{ mission }}</span>
+                </li>
               </ul>
             </div>
           </div>
