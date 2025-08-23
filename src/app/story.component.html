@@ -8,10 +8,10 @@
   <strong class="minecraft-section-heading">Characters:</strong>
       <ul class="character-list horizontal">
         <li *ngFor="let character of characters" class="character-item minecraft-character-frame">
-          <img *ngIf="character.image" [src]="getGameCharacterImage(character.image)" alt="{{ character.name }}" class="character-img large">
+          <img *ngIf="character.image" [src]="character.image" alt="{{ character.name }}" class="character-img large">
           <span>
             <span class="minecraft-character-name">{{ character.name }}</span>
-            <div *ngIf="character.role" class="character-role">{{ character.role }}</div>
+            <div *ngIf="character.subtitle" class="character-role">{{ character.subtitle }}</div>
           </span>
         </li>
       </ul>
