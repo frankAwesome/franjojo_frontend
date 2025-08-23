@@ -7,7 +7,7 @@ import firebase from 'firebase/compat/app';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private apiUrl = 'http://localhost:8000';
+  private apiUrl = 'https://13.49.67.7';
 
   constructor(private http: HttpClient, private afAuth: AngularFireAuth) {}
 
