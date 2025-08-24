@@ -1,0 +1,30 @@
+<!-- Redoc standalone embed for OpenAPI spec -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Franjojo API Redoc</title>
+  <style>
+    html, body { height: 100%; margin: 0; padding: 0; }
+    body { background: #fff; }
+    redoc { width: 100vw; height: 100vh; }
+  </style>
+</head>
+<body>
+  <redoc spec-url="/assets/swagger.json"></redoc>
+  <script src="https://cdn.redoc.ly/redoc/latest/bundles/redoc.standalone.js"></script>
+  <script>
+    // Send height to parent for dynamic iframe resizing
+    function sendHeight() {
+      var height = document.body.scrollHeight;
+      parent.postMessage({ redocHeight: height }, '*');
+    }
+    window.addEventListener('load', sendHeight);
+    window.addEventListener('resize', sendHeight);
+    // Also observe DOM changes (Redoc loads async)
+    const observer = new MutationObserver(sendHeight);
+    observer.observe(document.body, { childList: true, subtree: true });
+  </script>
+</body>
+</html>
