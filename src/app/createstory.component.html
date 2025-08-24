@@ -1,8 +1,67 @@
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 <app-header></app-header>
-<div style="max-width:600px;margin:7rem auto 0 auto;padding:2.5rem 2rem 2rem 2rem;background:#222;border:4px solid #3cfa00;box-shadow:8px 8px 0 #000;text-align:center;position:relative;z-index:2;">
+<div style="max-width:900px;margin:7rem auto 0 auto;padding:2.5rem 2rem 2rem 2rem;background:#222;border:4px solid #3cfa00;box-shadow:8px 8px 0 #000;text-align:center;position:relative;z-index:2;">
   <span style="font-family:'Press Start 2P',monospace;font-size:2rem;color:#3cfa00;text-shadow:2px 2px 0 #222,4px 4px 0 #000;display:block;margin-bottom:1.2rem;">CREATE STORY</span>
   <span style="font-family:'Press Start 2P',monospace;font-size:1rem;color:#fff;text-shadow:1px 1px 0 #222;display:block;line-height:2;">
     Only <span style='color:#3cfa00;'>admin</span> can create stories that will be posted publicly.
   </span>
+
+  <form #storyForm="ngForm" (ngSubmit)="submitStory()" style="margin-top:2.5rem;text-align:left;">
+    <div style="margin-bottom:1.2rem;">
+      <label class="minecraft-title">Title</label>
+      <input class="form-control" name="title" [(ngModel)]="story.title" required style="width:100%;margin-top:0.5rem;">
+    </div>
+    <div style="margin-bottom:1.2rem;">
+      <label class="minecraft-title">Lore</label>
+      <textarea class="form-control" name="lore" [(ngModel)]="story.lore" rows="2" style="width:100%;margin-top:0.5rem;"></textarea>
+    </div>
+  <!-- Timestamp is set automatically -->
+
+    <div style="margin-bottom:2.2rem;">
+      <label class="minecraft-title">Characters</label>
+      <div *ngFor="let char of story.characters; let i = index" style="border:2px solid #3cfa00;padding:1rem;margin-bottom:1rem;border-radius:8px;background:#232323;">
+        <div style="display:flex;gap:1rem;align-items:center;">
+          <input class="form-control" placeholder="Name" [(ngModel)]="char.name" name="charName{{i}}" required style="flex:1;">
+          <input class="form-control" placeholder="Subtitle" [(ngModel)]="char.subtitle" name="charSubtitle{{i}}" style="flex:1;">
+          <input class="form-control" placeholder="Image URL" [(ngModel)]="char.image" name="charImage{{i}}" style="flex:1;">
+          <input class="form-control" placeholder="Description" [(ngModel)]="char.description" name="charDesc{{i}}" style="flex:2;">
+          <select class="form-control" [(ngModel)]="char.type" name="charType{{i}}" style="flex:1;">
+            <option value="npc">NPC</option>
+            <option value="protagonist">Protagonist</option>
+          </select>
+          <button type="button" (click)="removeCharacter(i)" style="margin-left:0.5rem;background:#fa3c3c;color:#fff;border:none;padding:0.3rem 0.7rem;border-radius:4px;">Remove</button>
+        </div>
+  <!-- Timestamp is set automatically -->
+      </div>
+      <button type="button" (click)="addCharacter()" style="background:#3cfa00;color:#222;border:2px solid #222;padding:0.4rem 1.2rem;font-size:0.8rem;margin-top:0.7rem;border-radius:6px;">Add Character</button>
+    </div>
+
+    <div style="margin-bottom:2.2rem;">
+      <label class="minecraft-title">Chapters</label>
+      <div *ngFor="let chap of story.chapters; let ci = index" style="border:2px solid #3cfa00;padding:1rem;margin-bottom:1rem;border-radius:8px;background:#232323;">
+        <div style="display:flex;gap:1rem;align-items:center;">
+          <input class="form-control" placeholder="Title" [(ngModel)]="chap.title" name="chapTitle{{ci}}" required style="flex:1;">
+          <input class="form-control" placeholder="Image URL" [(ngModel)]="chap.image" name="chapImage{{ci}}" style="flex:1;">
+          <input class="form-control" placeholder="Description" [(ngModel)]="chap.description" name="chapDesc{{ci}}" style="flex:2;">
+          <button type="button" (click)="removeChapter(ci)" style="margin-left:0.5rem;background:#fa3c3c;color:#fff;border:none;padding:0.3rem 0.7rem;border-radius:4px;">Remove</button>
+        </div>
+  <!-- Timestamp is set automatically -->
+        <div style="margin-top:0.7rem;">
+          <label style="color:#3cfa00;font-size:0.9rem;">Milestones</label>
+          <div *ngFor="let ms of chap.milestones; let mi = index" style="display:flex;gap:0.7rem;align-items:center;margin-bottom:0.5rem;">
+            <input class="form-control" placeholder="Name" [(ngModel)]="ms.name" name="msName{{ci}}-{{mi}}" style="flex:2;">
+            <input class="form-control" type="checkbox" [(ngModel)]="ms.completed" name="msCompleted{{ci}}-{{mi}}" style="flex:0.2;">
+            <!-- Timestamp is set automatically -->
+            <button type="button" (click)="removeMilestone(ci, mi)" style="background:#fa3c3c;color:#fff;border:none;padding:0.2rem 0.6rem;border-radius:4px;">Remove</button>
+          </div>
+          <button type="button" (click)="addMilestone(ci)" style="background:#3cfa00;color:#222;border:2px solid #222;padding:0.3rem 1.1rem;font-size:0.8rem;margin-top:0.3rem;border-radius:6px;">Add Milestone</button>
+        </div>
+      </div>
+      <button type="button" (click)="addChapter()" style="background:#3cfa00;color:#222;border:2px solid #222;padding:0.4rem 1.2rem;font-size:0.8rem;margin-top:0.7rem;border-radius:6px;">Add Chapter</button>
+    </div>
+
+    <button type="submit" [disabled]="storyForm.invalid" style="background:#3cfa00;color:#222;border:2px solid #222;padding:0.7rem 2.2rem;font-size:1.1rem;border-radius:8px;">Submit Story</button>
+    <div *ngIf="submitMessage" style="margin-top:1.5rem;color:#3cfa00;font-family:'Press Start 2P',monospace;">{{submitMessage}}</div>
+    <div *ngIf="submitError" style="margin-top:1.5rem;color:#fa3c3c;font-family:'Press Start 2P',monospace;">{{submitError}}</div>
+  </form>
 </div>
