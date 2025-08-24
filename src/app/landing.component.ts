@@ -1,5 +1,6 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from './services/auth.service';
 
 declare var particlesJS: any;
 
@@ -9,10 +10,18 @@ declare var particlesJS: any;
   styleUrls: ['./landing.component.scss']
 })
 export class LandingComponent implements AfterViewInit {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
-  screwTheLogin() {
-    this.router.navigate(['/home']);
+  screwTheLogin(): void {
+    this.authService.login({ email: 'guy@guy.com', password: 'password' }).subscribe({
+      next: () => {
+        this.router.navigate(['/home']);
+      },
+      error: () => {
+        // fallback: just go to home if login fails
+        this.router.navigate(['/home']);
+      }
+    });
   }
 
   ngAfterViewInit() {
