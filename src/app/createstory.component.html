@@ -13,7 +13,7 @@
     </div>
     <div style="margin-bottom:1.2rem;">
       <label class="minecraft-title">Lore</label>
-      <textarea class="form-control" name="lore" [(ngModel)]="story.lore" rows="2" style="width:100%;margin-top:0.5rem;"></textarea>
+  <textarea class="form-control" name="lore" [(ngModel)]="story.lore" rows="5" style="width:100%;margin-top:0.5rem;"></textarea>
     </div>
   <!-- Timestamp is set automatically -->
 
@@ -21,7 +21,7 @@
       <label class="minecraft-title">Characters</label>
       <div class="character-cards-flex">
         <div *ngFor="let char of story.characters; let i = index" class="character-card-flex">
-          <div style="display:flex;gap:1rem;align-items:center;">
+          <div class="character-input-row">
             <input class="form-control" placeholder="Name" [(ngModel)]="char.name" name="charName{{i}}" required style="flex:1;">
             <input class="form-control" placeholder="Subtitle" [(ngModel)]="char.subtitle" name="charSubtitle{{i}}" style="flex:1;">
             <!-- Character image is assigned automatically -->
@@ -40,7 +40,7 @@
     <div style="margin-bottom:2.2rem;">
       <label class="minecraft-title">Chapters</label>
       <div *ngFor="let chap of story.chapters; let ci = index" style="border:2px solid #3cfa00;padding:1rem;margin-bottom:1rem;border-radius:8px;background:#232323;">
-        <div style="display:flex;gap:1rem;align-items:center;">
+  <div class="chapter-input-row">
           <input class="form-control" placeholder="Title" [(ngModel)]="chap.title" name="chapTitle{{ci}}" required style="flex:1;">
           <!-- Chapter image is assigned automatically -->
           <input class="form-control" placeholder="Description" [(ngModel)]="chap.description" name="chapDesc{{ci}}" style="flex:2;">

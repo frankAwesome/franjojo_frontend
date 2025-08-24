@@ -1,3 +1,11 @@
+/* Stack character and chapter input fields vertically */
+.character-input-row,
+.chapter-input-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  align-items: stretch;
+}
 /* Character cards flex wrap */
 .character-cards-flex {
   display: flex;
