@@ -44,7 +44,7 @@ export interface GetAllStoriesResponse {
 
 @Injectable({ providedIn: 'root' })
 export class StoryService {
-  private apiUrl = 'https://13.49.67.7/v1/getAllStories';
+  private apiUrl = 'https://franklerk.co.za/v1/getAllStories';
 
   constructor(private http: HttpClient) {}
 

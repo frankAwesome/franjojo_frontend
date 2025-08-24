@@ -13,7 +13,7 @@ export interface GetNPCDialogRequest {
 
 @Injectable({ providedIn: 'root' })
 export class DialogService {
-  private apiUrl = 'http://localhost:8000/v1/getNPCDialog';
+  private apiUrl = 'https://franklerk.co.za/v1/getDialog';
 
   constructor(private http: HttpClient) {}
 
