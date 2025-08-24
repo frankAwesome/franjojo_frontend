@@ -23,7 +23,7 @@
         <div style="display:flex;gap:1rem;align-items:center;">
           <input class="form-control" placeholder="Name" [(ngModel)]="char.name" name="charName{{i}}" required style="flex:1;">
           <input class="form-control" placeholder="Subtitle" [(ngModel)]="char.subtitle" name="charSubtitle{{i}}" style="flex:1;">
-          <input class="form-control" placeholder="Image URL" [(ngModel)]="char.image" name="charImage{{i}}" style="flex:1;">
+          <!-- Character image is assigned automatically -->
           <input class="form-control" placeholder="Description" [(ngModel)]="char.description" name="charDesc{{i}}" style="flex:2;">
           <select class="form-control" [(ngModel)]="char.type" name="charType{{i}}" style="flex:1;">
             <option value="npc">NPC</option>
@@ -41,7 +41,7 @@
       <div *ngFor="let chap of story.chapters; let ci = index" style="border:2px solid #3cfa00;padding:1rem;margin-bottom:1rem;border-radius:8px;background:#232323;">
         <div style="display:flex;gap:1rem;align-items:center;">
           <input class="form-control" placeholder="Title" [(ngModel)]="chap.title" name="chapTitle{{ci}}" required style="flex:1;">
-          <input class="form-control" placeholder="Image URL" [(ngModel)]="chap.image" name="chapImage{{ci}}" style="flex:1;">
+          <!-- Chapter image is assigned automatically -->
           <input class="form-control" placeholder="Description" [(ngModel)]="chap.description" name="chapDesc{{ci}}" style="flex:2;">
           <button type="button" (click)="removeChapter(ci)" style="margin-left:0.5rem;background:#fa3c3c;color:#fff;border:none;padding:0.3rem 0.7rem;border-radius:4px;">Remove</button>
         </div>

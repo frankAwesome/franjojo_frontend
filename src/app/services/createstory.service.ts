@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class CreateStoryService {
-  private apiUrl = 'http://localhost:8000/v1/addGameStory';
+  private apiUrl = 'https://franklerk.co.za/v1/addGameStory';
 
   constructor(private http: HttpClient) {}
 
