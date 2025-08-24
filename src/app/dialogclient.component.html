@@ -31,7 +31,7 @@
       </div>
       <div class="mb-3">
         <label>Dialog Text:</label>
-        <textarea [(ngModel)]="dialogText" name="dialogText" rows="4" style="width:100%" class="minecraft-input"></textarea>
+  <textarea [(ngModel)]="dialogText" name="dialogText" rows="4" style="width:100%" class="minecraft-input minecraft-placeholder" placeholder="Type your dialog here"></textarea>
       </div>
       <button class="minecraft-btn" type="submit">Send Dialog</button>
       <button class="minecraft-btn" type="button" (click)="$event.stopPropagation(); closeDialog.emit()">Close</button>

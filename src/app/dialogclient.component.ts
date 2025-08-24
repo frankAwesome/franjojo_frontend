@@ -72,7 +72,7 @@ export class DialogClientComponent implements OnInit {
 
   submitDialog() {
     if (!this.selectedStoryId || !this.selectedNpcId || !this.selectedChapterId) {
-      this.error = 'Please select all fields.';
+      this.error = 'Please select a NPC.';
       return;
     }
     const milestonesArr = this.milestones

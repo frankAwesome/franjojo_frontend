@@ -1,3 +1,11 @@
+.minecraft-placeholder::placeholder {
+  font-family: 'Press Start 2P', monospace;
+  color: #3cfa00;
+  opacity: 1;
+  text-shadow: 1px 1px 0 #222, 2px 2px 0 #000;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
 .dropdown-img-round {
   width: 64px;
   height: 64px;
