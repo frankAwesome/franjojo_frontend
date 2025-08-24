@@ -1,3 +1,21 @@
+/* Character cards flex wrap */
+.character-cards-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  align-items: stretch;
+}
+.character-card-flex {
+  flex: 1 1 340px;
+  min-width: 280px;
+  max-width: 100%;
+  box-sizing: border-box;
+  border: 2px solid #3cfa00;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  background: #232323;
+}
 .profile-panel {
   background: #fff;
   border-radius: 18px;
