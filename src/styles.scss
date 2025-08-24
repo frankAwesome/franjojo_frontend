@@ -1,3 +1,41 @@
+/* Global spinning image animation for background mascot */
+.amongus-bounce-spin {
+	position: absolute;
+	left: 10vw;
+	top: 10vh;
+	width: 120px;
+	height: 120px;
+	pointer-events: none;
+	z-index: 1;
+	animation: bounce-move 18s linear infinite, spin 7s linear infinite;
+	-webkit-animation: bounce-move 18s linear infinite, spin 7s linear infinite;
+}
+
+@keyframes bounce-move {
+	0% { left: 10vw; top: 10vh; }
+	20% { left: 70vw; top: 12vh; }
+	40% { left: 60vw; top: 70vh; }
+	60% { left: 20vw; top: 60vh; }
+	80% { left: 80vw; top: 30vh; }
+	100% { left: 10vw; top: 10vh; }
+}
+@-webkit-keyframes bounce-move {
+	0% { left: 10vw; top: 10vh; }
+	20% { left: 70vw; top: 12vh; }
+	40% { left: 60vw; top: 70vh; }
+	60% { left: 20vw; top: 60vh; }
+	80% { left: 80vw; top: 30vh; }
+	100% { left: 10vw; top: 10vh; }
+}
+
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+	0% { -webkit-transform: rotate(0deg); }
+	100% { -webkit-transform: rotate(360deg); }
+}
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
 body {
