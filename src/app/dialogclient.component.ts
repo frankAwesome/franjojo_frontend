@@ -1,6 +1,6 @@
 import { Component, Output, EventEmitter, OnInit, Input } from '@angular/core';
 import { StoryService, Story, Character, Chapter, Milestone } from './services/story.service';
-import { DialogService, GetNPCDialogRequest } from './services/dialog.service';
+import { DialogService } from './services/dialog.service';
 
 
 export interface DialogMessage {
@@ -79,21 +79,30 @@ export class DialogClientComponent implements OnInit {
       .filter(m => this.selectedMilestones[m.id])
       .map(m => ({ id: m.id, completed: true }));
     const payload: any = {
-      dialogText: this.dialogText,
-      storyId: this.selectedStoryId,
-      npcId: this.selectedNpcId,
-      chapterId: this.selectedChapterId,
+      playerQuestion: this.dialogText,
+      activeChapterId: this.selectedChapterId,
+      completedChapterIds: [],
       milestones: milestonesArr
     };
     // Add user message to history
     this.messageHistory.push({ text: this.dialogText, sender: 'user' });
-    this.dialogService.getNPCDialog(payload).subscribe({
+    // Get JWT token from localStorage (assumes you store it after login)
+    const token = localStorage.getItem('token');
+    if (!token) {
+      this.error = 'Not authenticated. Please log in.';
+      return;
+    }
+    this.dialogService.getDialog(
+      this.selectedStoryId!,
+      this.selectedNpcId!,
+      payload,
+      token
+    ).subscribe({
       next: (res) => {
         this.response = res;
         this.error = null;
-  // Use 'response' field from API response as NPC reply
-  const npcText = res.response || JSON.stringify(res);
-  this.messageHistory.push({ text: npcText, sender: 'npc' });
+        const npcText = res.response?.dialogResponse || JSON.stringify(res);
+        this.messageHistory.push({ text: npcText, sender: 'npc' });
         this.dialogText = '';
       },
       error: () => {

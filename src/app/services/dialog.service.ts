@@ -1,15 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
-export interface GetNPCDialogRequest {
-  dialogText: string;
-  storyId: number;
-  protagonistId: number;
-  npcId: number;
-  chapterId: number;
-  milestones: { id: number; completed: boolean }[];
-}
 
 @Injectable({ providedIn: 'root' })
 export class DialogService {
@@ -17,7 +8,17 @@ export class DialogService {
 
   constructor(private http: HttpClient) {}
 
-  getNPCDialog(data: GetNPCDialogRequest): Observable<any> {
-    return this.http.post(this.apiUrl, data);
+  /**
+   * Call dialog endpoint with JWT token in Authorization header.
+   * @param storyId story id
+   * @param npcId npc id
+   * @param data dialog payload (playerQuestion, activeChapterId, completedChapterIds, milestones)
+   * @param token JWT token (from login or Firebase)
+   */
+  getDialog(storyId: number, npcId: number, data: any, token: string): Observable<any> {
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`
+    });
+    return this.http.post(`${this.apiUrl}/${storyId}/${npcId}`, data, { headers });
   }
 }

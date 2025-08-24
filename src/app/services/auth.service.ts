@@ -7,7 +7,7 @@ import firebase from 'firebase/compat/app';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private apiUrl = 'https://13.49.67.7';
+  private apiUrl = 'https://franklerk.co.za';
 
   constructor(private http: HttpClient, private afAuth: AngularFireAuth) {}
 
@@ -16,7 +16,26 @@ export class AuthService {
   }
 
   login(data: { email: string; password: string }): Observable<any> {
-    return this.http.post(`${this.apiUrl}/login`, data);
+    // First, login to backend, then sign in to Firebase with the returned idToken
+    return new Observable(observer => {
+      this.http.post<any>(`${this.apiUrl}/login`, data).subscribe({
+        next: async (res) => {
+          try {
+            if (res && res.idToken && res.email) {
+              // Store the idToken for use in service calls
+              localStorage.setItem('token', res.idToken);
+              const credential = firebase.auth.EmailAuthProvider.credential(res.email, data.password);
+              await this.afAuth.signInWithCredential(credential);
+            }
+            observer.next(res);
+            observer.complete();
+          } catch (err) {
+            observer.error(err);
+          }
+        },
+        error: (err) => observer.error(err)
+      });
+    });
   }
 
   loginWithGoogle() {
