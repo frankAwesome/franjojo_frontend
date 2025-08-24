@@ -1,4 +1,15 @@
+
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<!-- Minecraft Loader Overlay -->
+<div class="minecraft-loader-overlay" *ngIf="loading">
+  <div class="minecraft-loader">
+    <div class="block block1"></div>
+    <div class="block block2"></div>
+    <div class="block block3"></div>
+    <div class="block block4"></div>
+    <span class="loader-text">Loading...</span>
+  </div>
+</div>
 <div class="home-bg">
   <div id="particles-js"></div>
 </div>
@@ -8,7 +19,7 @@
   <span style="font-family:'Press Start 2P',monospace;font-size:1rem;color:#fff;text-shadow:1px 1px 0 #222;display:block;line-height:2;margin-bottom:1.2rem;">
     The platform for<br>
     dynamic NPC dialog.<br>
-    Tools for every step of the in-game conversation lifecycle—built to unlock powerful AI-driven interactions in your worlds.<br>
+    Tools for every step of the in-game conversation lifecyclebuilt to unlock powerful AI-driven interactions in your worlds.<br>
   </span>
   <p class="minecraft-desc" style="margin:1.2rem 0 2rem 0;">Create, share, and play Minecraft-inspired stories.<br>Login or register to get started!</p>
   <div class="landing-actions">

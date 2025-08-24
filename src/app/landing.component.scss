@@ -1,3 +1,46 @@
+/* Minecraft Loader Styles */
+.minecraft-loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(34, 34, 34, 0.85);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.minecraft-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.minecraft-loader .block {
+  width: 36px;
+  height: 36px;
+  margin: 0.2rem;
+  background: url('https://static.wikia.nocookie.net/minecraft_gamepedia/images/6/6e/Grass_Block_JE5_BE3.png') no-repeat center center;
+  background-size: cover;
+  border: 2px solid #222;
+  border-radius: 6px;
+  animation: block-bounce 1.2s infinite;
+}
+.minecraft-loader .block2 { animation-delay: 0.2s; }
+.minecraft-loader .block3 { animation-delay: 0.4s; }
+.minecraft-loader .block4 { animation-delay: 0.6s; }
+@keyframes block-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-32px) scale(1.1); }
+}
+.minecraft-loader .loader-text {
+  font-family: 'Press Start 2P', monospace;
+  color: #fff;
+  font-size: 1.1rem;
+  margin-top: 1.2rem;
+  text-shadow: 2px 2px 0 #222, 4px 4px 0 #000;
+  letter-spacing: 1px;
+}
 /* Match home-bg and stacking for landing page */
 .home-bg {
   position: fixed;

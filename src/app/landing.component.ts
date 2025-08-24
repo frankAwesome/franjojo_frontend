@@ -10,9 +10,12 @@ declare var particlesJS: any;
   styleUrls: ['./landing.component.scss']
 })
 export class LandingComponent implements AfterViewInit {
+  loading = false;
+
   constructor(private router: Router, private authService: AuthService) {}
 
   screwTheLogin(): void {
+    this.loading = true;
     this.authService.login({ email: 'guy@guy.com', password: 'password' }).subscribe({
       next: () => {
         this.router.navigate(['/home']);
@@ -20,6 +23,9 @@ export class LandingComponent implements AfterViewInit {
       error: () => {
         // fallback: just go to home if login fails
         this.router.navigate(['/home']);
+      },
+      complete: () => {
+        this.loading = false;
       }
     });
   }
