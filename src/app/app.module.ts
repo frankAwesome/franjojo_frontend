@@ -18,6 +18,7 @@ import { ProfileComponent } from './profile.component';
 import { CreateStoryComponent } from './createstory.component';
 import { DialogClientComponent } from './dialogclient.component';
 import { DocsComponent } from './docs.component';
+import { LandingComponent } from './landing.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from './auth.guard';
@@ -35,7 +36,8 @@ import { AuthGuard } from './auth.guard';
   ProfileComponent,
   CreateStoryComponent,
   DialogClientComponent,
-  DocsComponent
+  DocsComponent,
+  LandingComponent
   ],
   imports: [
     BrowserModule,

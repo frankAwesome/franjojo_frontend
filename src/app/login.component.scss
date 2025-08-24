@@ -1,3 +1,31 @@
+/* Responsive login form for mobile */
+@media (max-width: 600px) {
+  form.minecraft-login-form {
+    max-width: 98vw !important;
+    min-width: 0 !important;
+    margin: 1.2rem auto !important;
+    padding: 1.2rem 0.5rem 1.2rem 0.5rem !important;
+    border-radius: 10px !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.13) !important;
+  }
+  .minecraft-login-form input,
+  .minecraft-login-form button {
+    font-size: 1.1rem !important;
+    padding: 0.7rem 0.5rem !important;
+  }
+  .minecraft-login-form label {
+    font-size: 1rem !important;
+  }
+  img[alt*="Franjojo"] {
+    max-width: 180px !important;
+    max-height: 180px !important;
+    margin: 1.5rem auto 0 auto !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    position: static !important;
+    display: block !important;
+  }
+}
 body, :host {
   background: url('https://wallpapers.com/images/hd/cartoon-games-1334-x-721-wallpaper-y8oavf5j1zkl912t.jpg') no-repeat center center fixed;
   background-size: cover;
