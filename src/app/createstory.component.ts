@@ -1,5 +1,7 @@
+
 import { Component } from '@angular/core';
 import { CreateStoryService } from './services/createstory.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-createstory',
@@ -7,7 +9,6 @@ import { CreateStoryService } from './services/createstory.service';
   styleUrls: ['./createstory.component.scss']
 })
 
-// ...existing code up to @Component...
 export class CreateStoryComponent {
   characterImages: string[] = [
     'https://img.freepik.com/free-psd/3d-illustration-with-online-avatar_23-2151303097.jpg',
@@ -31,8 +32,9 @@ export class CreateStoryComponent {
   };
   submitMessage: string = '';
   submitError: string = '';
+  loading: boolean = false;
 
-  constructor(private createStoryService: CreateStoryService) {}
+  constructor(private createStoryService: CreateStoryService, private router: Router) {}
 
   addCharacter() {
     const idx = this.story.characters.length;
@@ -85,13 +87,14 @@ export class CreateStoryComponent {
   submitStory() {
     this.submitMessage = '';
     this.submitError = '';
+    this.loading = true;
     const token = localStorage.getItem('token');
     if (!token) {
       this.submitError = 'Not authenticated. Please log in.';
+      this.loading = false;
       return;
     }
     // Set IDs and timestamps if missing
-    // Generate a unique storyId (e.g., timestamp-based)
     this.story.storyId = Math.floor(Date.now() / 1000); // 10-digit integer
     const now = new Date().toISOString();
     this.story.timestamp = now;
@@ -111,10 +114,15 @@ export class CreateStoryComponent {
       next: () => {
         this.submitMessage = 'Story created successfully!';
         this.submitError = '';
+        setTimeout(() => {
+          this.loading = false;
+          this.router.navigate(['/home']);
+        }, 900); // brief loader before redirect
       },
       error: (err) => {
         this.submitError = 'Failed to create story.';
         this.submitMessage = '';
+        this.loading = false;
         console.error(err);
       }
     });
